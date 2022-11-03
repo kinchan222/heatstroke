@@ -1,0 +1,588 @@
+// ***************   レスポンシブ設定   *************** 
+@mixin sp-screen {
+  @media screen and (max-width:767px) {
+      @content;
+  }
+}
+// ***************************** 
+* {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+// ヘッダー 
+.section {
+  width: 100%;
+  height: 100%;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  color: #000;
+  background-color: #08edf5;
+
+  @include sp-screen{
+    margin: 0px;
+    display: block;
+    padding: 0px;
+  }
+
+  li {
+    -webkit-border-radius: 1px;
+    border-radius: 8px;
+    background-color: #ffffff80;
+  }
+
+  a {
+    margin: 0 20px;
+  }
+}
+
+.header {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+
+  img {
+    height: 100px;
+  }
+
+}
+
+.header_left {
+  font-size: 40px;
+  display: flex;
+
+  i {
+    margin: 0 5px;
+    color: blue;
+  }
+}
+
+
+// 1,熱中症とは？原因
+.main_cause {
+  padding: 13px 30px;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+
+  @include sp-screen{
+    display: block;
+  }
+
+  &-pt {
+    height: 500px;
+
+    @include sp-screen{
+        display: none;
+    }
+  }
+}
+
+.bg {
+  text-align: center;
+
+  img {
+    height: 220px;
+    margin-bottom: 20px;
+
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+.het_container {
+  // border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  height: 320px;
+
+  @include sp-screen{
+    display: block;
+  }
+
+}
+
+.hetCause,
+.hetCause-body,
+.hetCause-action {
+  border: solid 1px black;
+  background-color: rgb(25, 211, 195);
+  border-radius: 20px;
+  height: 250px;
+  width: 300px;
+  padding: 20px 30px;
+  margin: 0 30px;
+
+  @include sp-screen{
+    margin: 0 auto;
+  }
+
+  .fa-solid {
+    color: green;
+  }
+
+}
+
+.question {
+  position: relative;
+  cursor: default;
+  border: solid 1px blue;
+  border-radius: 10px;
+  background-color: orange;
+  height: 40px;
+  width: 250px;
+  padding: 5px;
+  margin: 5px auto;
+  font-size: 20px;
+  font-weight: bold;
+
+  &::after {
+    width: 20px;
+    height: 2px;
+    right: 10px;
+    top: 45%;
+    content: '';
+    display: block;
+    background-color: blue;
+    position: absolute;
+  }
+
+  &::before {
+    width: 2px;
+    height: 20px;
+    right: 19px;
+    top: 25%;
+    content: '';
+    display: block;
+    background-color: blue;
+    position: absolute;
+  }
+}
+
+.answer {
+  display: none;
+  background-color: rgb(230, 227, 63);
+  border: solid 1px blue;
+  border-radius: 10px;
+  height: 160px;
+  width: 250px;
+  padding: 10px;
+  margin: 5px auto;
+  font-weight: bold;
+}
+
+.question.on::before {
+  display: none;
+}
+
+// 2,熱中症になってしまったら
+.ntu {
+  &-main {
+    border: solid 1px black;
+    height: 100vh;
+    // width: 100vw;
+    background-image: url(../../img/sun.jpeg);
+    background-size: cover;
+    position: relative;
+    margin: 0;
+
+    @include sp-screen{
+      position: static;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 900;
+    }
+  }
+
+  &-slick {
+    width: 40vw;
+    margin: 300px 0 0 100px;
+    border: 10px ridge #FFC6AC;
+
+
+    img {
+      position: absolute;
+      left: 20%;
+      // height: 500px;
+      // width: 300px;
+    }
+  }
+}
+
+// 重症度分類
+.nts-severity {
+  // border: solid 1px black;
+  border-radius: 20px;
+  padding: 20px 30px;
+  width: 300px;
+  position: absolute;
+  left: 55%;
+  top: 13%;
+
+  @include sp-screen{
+    position: static;
+    padding: 0px;
+  }
+
+  &-list1 {
+    position: relative;
+    cursor: default;
+    border: solid 1px blue;
+    border-radius: 10px;
+    background-color: orange;
+    height: 50px;
+    width: 400px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+
+    &::after {
+      width: 20px;
+      height: 2px;
+      right: 10px;
+      top: 45%;
+      content: '';
+      display: block;
+      background-color: blue;
+      position: absolute;
+    }
+
+    &::before {
+      width: 2px;
+      height: 20px;
+      right: 19px;
+      top: 25%;
+      content: '';
+      display: block;
+      background-color: blue;
+      position: absolute;
+    }
+  }
+
+  &-list {
+    display: none;
+    background-color: rgb(230, 227, 63);
+    border: solid 1px blue;
+    border-radius: 10px;
+    width: 400px;
+    padding: 10px;
+    margin: 5px auto;
+    font-weight: bold;
+  }
+
+  .fa-solid {
+    color: red;
+  }
+}
+
+.nts-severity-question.on::before {
+  display: none;
+}
+
+// おすすめアイテム
+#section4 .ossume {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-img-top {
+  height: 400px;
+
+}
+
+// Bootstrap
+.card_container {
+  //  height: 80vh;
+  margin: 0 30px 100px;
+}
+
+// suppaiman
+.suppai-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  @include sp-screen{
+    display: block;
+  }
+
+  .suppai-left img {
+    transition: 1s all;
+    height: 70%;
+    margin-top: 20px;
+  }
+
+  .suppai-left img:hover {
+    transform: scale(1.2, 1.1);
+    transition: 1s all;
+  }
+}
+
+h2 {
+  text-align: center;
+  background-color: yellow;
+}
+
+// 続きを読む
+.cp_box *,
+.cp_box *:before,
+.cp_box *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cp_box {
+  position: relative;
+}
+
+.cp_box label {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  /* グラデーションの高さ */
+  cursor: pointer;
+  text-align: center;
+  /* 以下グラデーションは背景を自身のサイトに合わせて設定してください */
+  background: linear-gradient(to bottom, rgba(250, 252, 252, 0) 0%, rgba(250, 252, 252, 0.95) 90%);
+}
+
+.cp_box input:checked+label {
+  background: inherit;
+  /* 開いた時にグラデーションを消す */
+}
+
+.cp_box label:after {
+  line-height: 2.5rem;
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 50%;
+  width: 16rem;
+  font-family: "FontAwesome";
+  content: '\f13a' "会社情報";
+  transform: translate(-50%, 0);
+  letter-spacing: 0.05em;
+  color: red;
+  border-radius: 20px;
+  background-color: yellow;
+}
+
+.cp_box input {
+  display: none;
+}
+
+.cp_box .cp_container {
+  overflow: hidden;
+  height: 300px;
+  /* 開く前に見えている部分の高さ */
+  transition: all 0.5s;
+}
+
+.cp_box input:checked+label {
+  /* display: none ; 閉じるボタンを消す場合解放 */
+}
+
+.cp_box input:checked+label:after {
+  font-family: "FontAwesome";
+  content: '\f139'  "閉じる";
+}
+
+.cp_box input:checked~.cp_container {
+  height: auto;
+  padding-bottom: 80px;
+  /* 閉じるボタンのbottomからの位置 */
+  transition: all 0.5s;
+}
+
+.cp_container {
+  h4 {
+    font-size: 15px;
+  }
+}
+
+.cp_font {
+  font-size: 10px;
+}
+
+// footer
+footer {
+  background-color: yellow;
+  text-align: center;
+}
+
+.go-top-btn {
+  color: orange;
+  font-size: 20px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+// pagepiling
+/*!
+ * pagepiling.js 1.5.6
+ *
+ * https://github.com/alvarotrigo/pagePiling.js
+ * @license MIT licensed
+ *
+ * Copyright (C) 2016 alvarotrigo.com - A project by Alvaro Trigo
+ */
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+
+  /*Avoid flicker on slides transitions for mobile phones #336 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.pp-section {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+
+  /* fixes flickering in firefox*/
+  backface-visibility: hidden;
+}
+
+.pp-easing {
+  -webkit-transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  -moz-transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  -o-transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  transition: all 1000ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  -moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  transition-timing-function: cubic-bezier(0.550, 0.085, 0.000, 0.990);
+  /* custom */
+}
+
+#pp-nav {
+  position: fixed;
+  z-index: 100;
+  margin-top: -32px;
+  top: 50%;
+  opacity: 1;
+}
+
+#pp-nav.right {
+  right: 17px;
+}
+
+#pp-nav.left {
+  left: 17px;
+}
+
+.pp-section.pp-table {
+  display: table;
+}
+
+.pp-tableCell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+.pp-slidesNav {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  opacity: 1;
+}
+
+.pp-slidesNav.bottom {
+  bottom: 17px;
+}
+
+.pp-slidesNav.top {
+  top: 17px;
+}
+
+#pp-nav ul,
+.pp-slidesNav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#pp-nav li,
+.pp-slidesNav li {
+  display: block;
+  width: 14px;
+  height: 13px;
+  margin: 7px;
+  position: relative;
+}
+
+.pp-slidesNav li {
+  display: inline-block;
+}
+
+#pp-nav li a,
+.pp-slidesNav li a {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#pp-nav li .active span,
+.pp-slidesNav .active span {
+  background: #333;
+}
+
+#pp-nav span,
+.pp-slidesNav span {
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #000;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+.pp-tooltip {
+  position: absolute;
+  top: -2px;
+  color: #fff;
+  font-size: 14px;
+  font-family: arial, helvetica, sans-serif;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.pp-tooltip.right {
+  right: 20px;
+}
+
+.pp-tooltip.left {
+  left: 20px;
+}
+
+.pp-scrollable {
+  overflow-y: scroll;
+  height: 100%;
+}
